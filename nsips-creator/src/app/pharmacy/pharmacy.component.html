@@ -1,0 +1,17 @@
+<div>薬局情報の入力</div>
+<div *ngFor="let item of displayItems">
+    <div [ngSwitch]="item.type">
+        <mat-form-field *ngSwitchCase="'input'">
+            <mat-label>{{ item.name }}</mat-label>
+            <input matInput [placeholder]="item.placeholder || ''" />
+        </mat-form-field>
+        <mat-form-field *ngSwitchCase="'select'">
+            <mat-label>{{ item.name }}</mat-label>
+            <mat-select *ngIf="item?.options">
+                <ng-container *ngFor="let option of item.options">
+                    <mat-option value="option.value">{{ option.text }}</mat-option>
+                </ng-container>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>

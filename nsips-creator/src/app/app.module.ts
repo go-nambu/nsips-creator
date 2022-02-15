@@ -8,9 +8,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { PharmacyComponent } from './pharmacy/pharmacy.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PharmacyComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,6 +23,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatTabsModule,
     MatIconModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
