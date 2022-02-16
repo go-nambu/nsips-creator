@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,7 @@ import { PharmacyComponent } from './pharmacy/pharmacy.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { formStateReducer } from 'src/app/formState.reducer';
 
 @NgModule({
   declarations: [AppComponent, PharmacyComponent],
@@ -26,6 +29,8 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    StoreModule.forRoot({ formState: formStateReducer }),
+    StoreDevtoolsModule.instrument({}),
   ],
   providers: [],
   bootstrap: [AppComponent],

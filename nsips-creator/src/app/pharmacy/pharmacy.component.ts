@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { pharmacyColumnsDefinition } from 'src/const';
+import { Store } from '@ngrx/store';
+import { pharmacyColumnsDefinition, Definition } from 'src/const';
+import { update, clear } from 'src/app/formState.actions';
 
 @Component({
   selector: 'app-pharmacy',
@@ -8,7 +10,18 @@ import { pharmacyColumnsDefinition } from 'src/const';
 })
 export class PharmacyComponent implements OnInit {
   displayItems = pharmacyColumnsDefinition.filter((x) => x.display);
-  constructor() {}
+  formState$;
+
+  constructor(private store: Store<{ formState: any }>) {
+    this.formState$ = store.select('formState');
+  }
 
   ngOnInit(): void {}
+
+  inputChange(event: Event, param: Definition) {
+    const stateParam = {
+      [param.name]: (event.target as HTMLInputElement).value,
+    };
+    this.store.dispatch(update(stateParam));
+  }
 }

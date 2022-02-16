@@ -4,9 +4,11 @@ export type Definition = {
   type?: 'input' | 'select';
   placeholder?: string;
   options?: { value: string; text: string }[];
-}[];
+};
 
-export const pharmacyColumnsDefinition: Definition = [
+export type Definitions = Definition[];
+
+export const pharmacyColumnsDefinition: Definitions = [
   { name: 'バージョン情報', display: false },
   { name: '送信日時', display: false },
   { name: '備考', display: false },

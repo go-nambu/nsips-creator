@@ -3,7 +3,7 @@
     <div [ngSwitch]="item.type">
         <mat-form-field *ngSwitchCase="'input'">
             <mat-label>{{ item.name }}</mat-label>
-            <input matInput [placeholder]="item.placeholder || ''" />
+            <input matInput [placeholder]="item.placeholder || ''" (change)="inputChange($event, item)"/>
         </mat-form-field>
         <mat-form-field *ngSwitchCase="'select'">
             <mat-label>{{ item.name }}</mat-label>
