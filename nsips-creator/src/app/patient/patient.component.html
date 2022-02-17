@@ -1,5 +1,4 @@
-<div>患者情報の入力</div>
-<div *ngFor="let item of displayItems">
+<div *ngFor="let item of displayItems" class='user-input-form'>
     <div [ngSwitch]="item.type">
         <mat-form-field *ngSwitchCase="'input'">
             <mat-label>{{ item.name }}</mat-label>

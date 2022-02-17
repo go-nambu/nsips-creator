@@ -3,6 +3,14 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.user-input-form {
+    text-align: center;
+}
+
+.mat-tab-header {
+  margin-bottom: 48px;
+}
+
 .output-button-wrapper {
     text-align: center;
     button {
