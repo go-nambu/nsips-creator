@@ -15,9 +15,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { formStateReducer } from 'src/app/formState.reducer';
+import { PatientComponent } from './patient/patient.component';
 
 @NgModule({
-  declarations: [AppComponent, PharmacyComponent],
+  declarations: [AppComponent, PharmacyComponent, PatientComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

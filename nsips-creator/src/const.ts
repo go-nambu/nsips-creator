@@ -24,12 +24,20 @@ export const pharmacyColumnsDefinition: Definitions = [
   { name: '旧ファイル名', display: false },
 ];
 
-const patient_column_names = [
-  { name: '識別子', display: false },
-  { name: '患者コード', display: false },
-  { name: '患者カナ氏名', display: false },
-  { name: '患者漢字氏名', display: false },
-  { name: '性別', display: false },
+export const patientColumnsDefinition: Definitions = [
+  { name: '識別子', display: false, const: 1 },
+  { name: '患者コード', display: true, type: 'input' },
+  { name: '患者カナ氏名', display: true, type: 'input' },
+  { name: '患者漢字氏名', display: true, type: 'input' },
+  {
+    name: '性別',
+    display: true,
+    type: 'select',
+    options: [
+      { value: 'male', text: '男' },
+      { value: 'female', text: '女' },
+    ],
+  },
   { name: '生年月日', display: false },
   { name: '郵便番号', display: false },
   { name: '住所', display: false },

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { pharmacyColumnsDefinition } from 'src/const';
+import { pharmacyColumnsDefinition, patientColumnsDefinition } from 'src/const';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +17,15 @@ export class AppComponent {
   }
 
   downloadCsv() {
-    const orderedCsv = pharmacyColumnsDefinition
-      .map((x) => x.name)
-      .map((x) => this.formState[x])
+    const pharmacyOrderedRow = pharmacyColumnsDefinition
+      .map((x) => this.formState[x.name])
       .join(',');
-    const csvBlob = new Blob([orderedCsv], { type: 'text/csv' });
+    const patientOrderedRow = patientColumnsDefinition
+      .map((x) => this.formState[x.name])
+      .join(',');
+    const csvBlob = new Blob([`${pharmacyOrderedRow}\n${patientOrderedRow}`], {
+      type: 'text/csv',
+    });
     const url = window.URL.createObjectURL(csvBlob);
 
     const title = 'nsips_data';
