@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { pharmacyColumnsDefinition, Definition } from 'src/const';
-import { update, clear } from 'src/app/formState.actions';
+import { update } from 'src/app/formState.actions';
 
 @Component({
   selector: 'app-pharmacy',
@@ -13,7 +13,7 @@ export class PharmacyComponent implements OnInit {
   formState$;
 
   constructor(private store: Store<{ formState: any }>) {
-    this.formState$ = store.select('formState');
+    this.formState$ = this.store.select('formState');
   }
 
   ngOnInit(): void {}
